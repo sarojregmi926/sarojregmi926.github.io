@@ -13,7 +13,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 100%;
             margin: 50px auto;
             background-color: #fff;
             border-radius: 10px;
@@ -28,7 +28,7 @@
             text-align: center;
             font-size: 24px;
             border-bottom: 2px solid #e64a85;
-            animation: pulse 2s ease-in-out infinite; /* Added pulsating effect */
+            animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
@@ -56,7 +56,7 @@
         .image-container {
             position: relative;
             margin-bottom: 20px;
-            animation: rotateAnimation 8s linear infinite; /* Added rotation animation */
+            animation: rotateAnimation 8s linear infinite;
         }
 
         .image-container img {
@@ -86,7 +86,7 @@
         .signature {
             font-style: italic;
             font-size: 16px;
-            animation: bounce 2s ease-in-out infinite; /* Added bouncing effect */
+            animation: bounce 2s ease-in-out infinite;
         }
 
         @keyframes bounce {
@@ -99,6 +99,21 @@
             60% {
                 transform: translateY(-10px);
             }
+        }
+
+        .slideshow-container {
+            max-width: 100%;
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .mySlides img {
+            width: 100%;
+            border-radius: 10px;
         }
 
         @media screen and (max-width: 600px) {
@@ -119,8 +134,16 @@
                 <p>I missed you a lot and cherish every moment we've spent together. Happy 3rd Month Anniversary! You are my world and my everything.</p>
                 <p>Here's to many more months filled with love, laughter, and unforgettable memories.</p>
             </div>
-            <div class="image-container">
-                <img src="desu.webp" alt="Image">
+            <div class="slideshow-container">
+                <div class="mySlides">
+                    <img src="desu.webp" alt="Image 1">
+                </div>
+                <div class="mySlides">
+                    <img src="image2.jpg" alt="Image 2">
+                </div>
+                <div class="mySlides">
+                    <img src="image3.jpg" alt="Image 3">
+                </div>
             </div>
             <div class="signature">
                 With all my love,<br>
@@ -128,5 +151,23 @@
             </div>
         </div>
     </div>
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Change slide every 3 seconds
+        }
+    </script>
 </body>
 </html>
